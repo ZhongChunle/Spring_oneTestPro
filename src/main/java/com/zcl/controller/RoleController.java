@@ -32,6 +32,22 @@ public class RoleController {
     private RoleService roleService;
 
     /**
+     * com.zcl.controller.RoleController.save()
+     * 角色新增方法
+     *
+     * @author zhong
+     * @date 2022/5/3 8:36
+     * @param  role
+     * @return java.lang.String
+     */
+    @RequestMapping("/save")
+    public String save(Role role) {
+        roleService.save(role);
+        // 使用redirect重定向转发查询角色列表展示
+        return "redirect:/role/list";
+    }
+
+    /**
      * com.zcl.controller.RoleController.list()
      * 请求转发视图查询角色数据展示
      *

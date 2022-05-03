@@ -43,4 +43,18 @@ public class RoleDaoImpl implements RoleDao {
         List<Role> roleList = jdbcTemplate.query("select * from sys_role",new BeanPropertyRowMapper<Role>(Role.class));
         return roleList;
     }
+
+    /**
+     * com.zcl.dao.impl.RoleDaoImpl.save()
+     * 通过jdbcTemplate来完成dao语句新增角色信息
+     *
+     * @author zhong
+     * @date 2022/5/3 8:38
+     * @param  role
+     * @return void
+     */
+    @Override
+    public void save(Role role) {
+        jdbcTemplate.update("insert into sys_role values(?,?,?)",null,role.getRoleName(),role.getRoleDesc());
+    }
 }

@@ -33,4 +33,18 @@ public class RoleServiceImpl implements RoleService {
         List<Role> roleList = roleDao.findAll();
         return roleList;
     }
+
+    /**
+     * com.zcl.service.impl.RoleServiceImpl.save()
+     * 新增角色方法实现
+     *
+     * @author zhong
+     * @date 2022/5/3 8:37
+     * @param  role
+     * @return void
+     */
+    @Override
+    public void save(Role role) {
+        roleDao.save(role);
+    }
 }
