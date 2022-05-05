@@ -57,4 +57,19 @@ public class RoleDaoImpl implements RoleDao {
     public void save(Role role) {
         jdbcTemplate.update("insert into sys_role values(?,?,?)",null,role.getRoleName(),role.getRoleDesc());
     }
+
+    /**
+     * com.zcl.dao.impl.RoleDaoImpl.findRoleByUserId()
+     * 根据用户id查询用户角色中间表，中间表的角色id要等于角色表的id
+     *
+     * @author zhong
+     * @date 2022/5/3 22:38
+     * @param  id
+     * @return java.util.List<com.zcl.domain.Role>
+     */
+    @Override
+    public List<Role> findRoleByUserId(Long id) {
+        List<Role> roles = jdbcTemplate.query("select * from sys_user_role ur,sys_role r where ur.roleId = r.id and ur.userId=?", new BeanPropertyRowMapper<Role>(Role.class),id);
+        return roles;
+    }
 }

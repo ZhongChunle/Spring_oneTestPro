@@ -1,5 +1,7 @@
 package com.zcl.domain;
 
+import java.util.List;
+
 /**
  * 项目名称：Spring_oneTestPro
  * 描述：这是一个用户实体类
@@ -13,6 +15,17 @@ public class User {
     private String email;
     private String password;
     private String phoneNum;
+
+    // 当前用户具备那些角色
+    private List<Role> roles;
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 
     public Long getId() {
         return id;

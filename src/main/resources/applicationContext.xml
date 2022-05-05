@@ -34,4 +34,16 @@
     <bean id="roleDao" class="com.zcl.dao.impl.RoleDaoImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
+
+    <!--配置用户类型数据注入-->
+    <!--配置userService-->
+    <bean id="userService" class="com.zcl.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDao"/>
+        <property name="roleDao" ref="roleDao"/>
+    </bean>
+
+    <!--配置UserDao-->
+    <bean id="userDao" class="com.zcl.dao.impl.UserDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
 </beans>
